@@ -9,6 +9,8 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from sklearn.feature_extraction.text import TfidfVectorizer
 # remove morphological affixes from words, leaving only the word stem
 english_stemmer = nltk.stem.SnowballStemmer('english')
+from sklearn.feature_extraction.text import CountVectorizer
+
 
 # Reading the data provided via http://jmcauley.ucsd.edu/data/amazon/
 def parse(path):
@@ -41,3 +43,8 @@ def data_clean(rev, remove_stopwords=True):
 
     return (ary)
 
+def vectorizer(X_train):
+    vect = CountVectorizer().fit(X_train)
+    X_train_transformed = vect.transform(X_train)
+
+    return X_train_transformed
