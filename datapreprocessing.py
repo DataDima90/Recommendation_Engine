@@ -43,8 +43,9 @@ def data_clean(rev, remove_stopwords=True):
 
     return (ary)
 
-def vectorizer(X_train):
-    vect = CountVectorizer().fit(X_train)
-    X_train_transformed = vect.transform(X_train)
+def vectorizer(corpus):
+    vect = CountVectorizer()
+    X = vect.fit_transform(corpus)
+    X_feature = vect.get_feature_names()
 
-    return X_train_transformed
+    return X, X_feature
