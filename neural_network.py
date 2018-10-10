@@ -23,6 +23,7 @@ class DenseNet(nn.Module):
         items_embedding = self.item_factors(items)
 	    # concatenate user and item embeddings to form input
         x = torch.cat([users_embedding, items_embedding], 1)
+        print(x)
         h1_relu = F.relu(self.linear1(x))
         output_scores = self.linear2(h1_relu)
         return output_scores
