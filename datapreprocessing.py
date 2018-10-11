@@ -26,7 +26,7 @@ def getDF(path):
         i += 1
     return pd.DataFrame.from_dict(df, orient='index')
 
-# Removing stop words with NLTK
+# Removing stop wgtords with NLTK
 def data_clean(rev, remove_stopwords=True):
     new_text = re.sub("[^a-zA-Z]", " ", rev)
 
